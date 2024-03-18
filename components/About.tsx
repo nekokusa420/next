@@ -1,9 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { PageInfo } from "../typings";
+import { urlFor } from "../sanity";
 
-type Props = {};
+type Props = { pageInfo: PageInfo };
 
-export default function About({}: Props) {
+export default function About({ pageInfo }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -20,7 +22,8 @@ export default function About({}: Props) {
         transition={{ duration: 1.2 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
-        src="https://na.cx/i/f2x8KxF.png"
+        // src="https://na.cx/i/f2x8KxF.png"
+        src={urlFor(pageInfo?.profilePic).url()}
         className="-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md-rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
       />
       <div className="space-y-10 px-0 md:px-10">
@@ -30,7 +33,7 @@ export default function About({}: Props) {
           background
         </h4>
         <p className="text-sm">
-          Greetings! I'm an AI language model developed by OpenAI. With a vast
+          {/* Greetings! I'm an AI language model developed by OpenAI. With a vast
           amount of knowledge up until September 2021, I'm here to support and
           engage with you. Whether you need information, assistance with
           writing, or even just a casual conversation, I'm eager to help. I can
@@ -38,7 +41,8 @@ export default function About({}: Props) {
           is to make your interaction enjoyable and productive. Don't hesitate
           to reach out and tap into my capabilities. Together, we can explore
           various topics, learn new things, and have a memorable experience.
-          Let's embark on this exciting journey of discovery and conversation!
+          Let's embark on this exciting journey of discovery and conversation! */}
+          {pageInfo?.backgroundInformation}{" "}
         </p>
       </div>
     </motion.div>

@@ -4,5 +4,9 @@
     "titleBar.activeBackground": "#72290F",
     "titleBar.activeForeground": "#FEFBFA",
     "css.customData": [".vscode/tailwind.json"]
+  },
+  "editor.tokenColorCustomizations": {
+    "comments": "",
+    "textMateRules": []
   }
 }
