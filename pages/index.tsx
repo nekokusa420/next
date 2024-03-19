@@ -76,20 +76,27 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experience[] = await fetchExperiences();
-  const skills: Skill[] = await fetchSkills();
-  const projects: Project[] = await fetchProjects();
-  const socials: Social[] = await fetchSocial();
+  try {
+    const pageInfo: PageInfo = await fetchPageInfo();
+    const experiences: Experience[] = await fetchExperiences();
+    const skills: Skill[] = await fetchSkills();
+    const projects: Project[] = await fetchProjects();
+    const socials: Social[] = await fetchSocial();
 
-  return {
-    props: {
-      pageInfo,
-      experiences,
-      skills,
-      projects,
-      socials,
-    },
-    revalidate: 10,
-  };
+    return {
+      props: {
+        pageInfo,
+        experiences,
+        skills,
+        projects,
+        socials,
+      },
+      revalidate: 1,
+    };
+  } catch (error) {
+    console.error("Error fetching data: ", error);
+    return {
+      notFound: true,
+    };
+  }
 };

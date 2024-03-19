@@ -4,7 +4,7 @@ import { urlFor } from "../sanity";
 import { Experience } from "../typings";
 
 type Props = {
-  experience: Experience[];
+  experience: Experience;
 };
 
 export default function ExperienceCard({ experience }: Props) {
@@ -27,7 +27,7 @@ export default function ExperienceCard({ experience }: Props) {
             <img
               className="h-10 w-10 rounded-full"
               src={urlFor(technology?.image).url()}
-              key={technology.id}
+              key={technology._id}
             />
           ))}
           {/* <img

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Skill } from "../typings";
+import type { Skill } from "../typings"; // 使用 'type' 導入語法
 import { urlFor } from "../sanity";
 
 type Props = { skill: Skill; directionLeft?: boolean };
